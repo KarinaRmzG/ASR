@@ -1,0 +1,20 @@
+#
+# This is a sample network config, please uncomment lines to configure the network
+#
+
+# Uncomment this line to load custom interface files
+# source /etc/network/interfaces.d/*
+
+# Static config for eth0
+#auto eth0
+#iface eth0 inet static
+#	address 192.168.1.222
+#	netmask 255.255.255.240
+#	gateway 192.168.1.209
+#	dns-nameservers 1.1.1.1
+#	up echo nameserver 192.168.0.1 > /etc/resolv.conf
+
+# DHCP config for eth0
+auto eth0
+iface eth0 inet dhcp
+#	hostname UbuntuDockerGuest-2
