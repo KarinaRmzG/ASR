@@ -1,0 +1,130 @@
+------------------------------------------
+Configuracion PC's
+------------------------------------------
+PC1
+-------
+ip 172.17.10.21 255.255.255.0 172.17.10.1
+-------
+PC2
+-------
+ip 172.17.20.22 255.255.255.0 172.17.20.1
+-------
+PC3
+-------
+ip 172.17.30.23 255.255.255.0 172.17.30.1
+-------
+PC4
+-------
+ip 172.17.10.24 255.255.255.0 172.17.10.1
+-------
+PC5
+-------
+ip 172.17.20.25 255.255.255.0 172.17.20.1
+-------
+PC6
+-------
+ip 172.17.30.26 255.255.255.0 172.17.30.1
+------------------------------------------
+Creacion VLANS
+------------------------------------------
+ESW1, ESW2 y ESW3
+--------------------
+conf t
+vlan 10
+name Faculty/Staff
+vlan 20
+name Students
+vlan 30
+name Guest(Default)
+vlan 99
+name Management&Native
+------------------------------------------
+Asignación de VLAN a Puertos
+------------------------------------------
+ESW2 y ESW3
+-------
+conf t
+interface f1/2
+switchport mode access 
+switchport access vlan 10 
+interface f1/3
+switchport mode access 
+switchport access vlan 20 
+interface f1/6
+switchport mode access 
+switchport access vlan 30
+
+
+
+ESW1
+-------
+conf t
+vlan 99
+exit
+interface vlan 99
+ip address 172.17.99.31 255.255.255.0
+no shut
+exit
+
+
+conf t
+interface fa1/0
+switchport mode trunk
+switchport trunk native vlan 99
+interface fa1/1
+switchport mode trunk
+switchport trunk native vlan 99
+
+conf t
+int fa1/0.10
+encapsulation dot1Q 10
+ip address 172.17.10.1 255.255.255.0
+no shut
+
+conf t
+int fa1/0.20
+encapsulation dot1Q 20
+ip address 172.17.20.1 255.255.255.0
+no shut
+
+conf t
+int fa1/0.30
+encapsulation dot1Q 30
+ip address 172.17.30.1 255.255.255.0
+no shut
+
+ESW2
+-------
+conf t
+interface Fa1/0
+switchport mode trunk
+
+
+conf t
+interface Fa1/0
+switchport mode trunk
+switchport trunk native vlan 99
+
+Esw3
+-------
+conf t
+interface Fa1/1
+switchport mode trunk
+switchport trunk native vlan 99
+
+
+conf t
+vlan 99
+exit
+interface vlan 99
+ip address 172.17.99.32 255.255.255.0
+no shut
+exit
+
+conf t
+vlan 99
+exit
+interface vlan 99
+ip address 172.17.99.33 255.255.255.0
+no shut
+exit
