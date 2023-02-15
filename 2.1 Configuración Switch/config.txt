@@ -1,0 +1,63 @@
+---------------------------------
+SW1
+---------------------------------
+conf t
+no ip domain-lookup
+hostname S1
+service password-encryption
+enable secret class
+banner motd #
+Unauthorized access is strictly prohibited. #
+Line con 0
+password cisco
+login
+logging synchronous
+line vty 0 15
+password cisco
+login
+exit
+
+
+conf t
+vlan 99
+exit
+interface vlan 99
+ip address 192.168.1.2 255.255.255.0
+no shut
+exit
+
+
+conf t
+interface range f1/0 - 15
+switchport access vlan 99
+exit
+
+conf t
+ip default-gateway 192.168.1.1
+exit
+
+conf t
+line con 0
+password cisco
+login
+logging synchronous
+exit
+
+
+conf t
+line vty 0 15
+password cisco
+login
+end
+
+
+---------------------------------
+PC1
+---------------------------------
+ip 192.168.1.10 255.255.255.0 192.168.1.1
+---------------------------------
+
+
+interface f1/6
+switchport mode access 
+switchport access vlan 99
