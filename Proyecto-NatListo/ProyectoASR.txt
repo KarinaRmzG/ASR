@@ -1,0 +1,609 @@
+----------------------------------------
+dOCKER 1
+----------------------------------------
+auto eth0
+iface eth0 inet static
+	address 192.168.0.125
+	netmask 255.255.255.192
+	gateway 192.168.0.65
+	dns-nameservers 1.1.1.1
+
+
+##CONFIGURACION DHCP 
+
+----------------------------------------
+----------------------------------------
+dOCKER 2
+----------------------------------------
+auto eth0
+iface eth0 inet static
+	address 192.168.1.157
+	netmask 255.255.255.224
+	gateway 192.168.1.129
+----------------------------------------
+PC1
+----------------------------------------
+ip 192.168.0.126 255.255.255.192 192.168.0.65
+----------------------------------------
+----------------------------------------
+PC2
+----------------------------------------
+ip 192.168.1.221 255.255.255.224 192.168.1.193
+----------------------------------------
+----------------------------------------
+PC3
+----------------------------------------
+ip 192.168.1.222 255.255.255.224 192.168.1.193
+----------------------------------------
+----------------------------------------
+PC4
+----------------------------------------
+ip 192.168.1.21 255.255.255.128 192.168.1.1
+----------------------------------------
+----------------------------------------
+PC5
+----------------------------------------
+ip 192.168.1.11 255.255.255.128 192.168.1.1
+----------------------------------------
+----------------------------------------
+PC6
+----------------------------------------
+ip 192.168.1.158 255.255.255.224 192.168.1.129
+----------------------------------------
+----------------------------------------
+PC7
+----------------------------------------
+ip 192.168.1.190 255.255.255.224 192.168.1.161
+----------------------------------------
+----------------------------------------
+PC8
+----------------------------------------
+ip 192.168.1.189 255.255.255.224 192.168.1.161
+----------------------------------------
+----------------------------------------
+PC9
+----------------------------------------
+ip 192.168.1.20 255.255.255.128 192.168.1.1
+----------------------------------------
+----------------------------------------
+PC10
+----------------------------------------
+ip 192.168.1.10 255.255.255.128 192.168.1.1
+----------------------------------------
+R1
+----------------------------------------
+conf t
+int fa0/0
+ip address 192.168.0.65 255.255.255.192
+no shut
+exit
+int fa0/1
+ip address dhcp
+no shut
+exit
+int s0/0
+ip address 192.168.1.226 255.255.255.252
+no shut
+end
+copy running-config startup-config
+
+conf t
+router rip
+version 2
+network 192.168.0.64
+network 192.168.0.0
+network 192.168.1.224
+no auto-summary
+end
+copy running-config startup-config
+
+conf t
+int fa0/0
+ip nat inside
+exit
+int fa0/1
+ip nat outside
+end
+copy running-config startup-config
+
+conf t
+access-list 1 permit 192.168.0.64 0.0.0.63
+ip nat pool public_access 192.168.0.20 192.168.0.60 netmask 255.255.255.192
+ip nat inside source list 1 pool public_access
+end
+copy running-config startup-config
+
+show ip nat translations
+
+----------------------------------------
+R2
+----------------------------------------
+conf t
+int s0/0
+ip address 192.168.1.225 255.255.255.252
+no shut
+exit
+int s0/1
+ip address 192.168.1.237 255.255.255.252
+no shut
+exit
+int s0/2
+ip address 192.168.1.233 255.255.255.252
+no shut
+exit
+int s0/3
+ip address 192.168.1.229 255.255.255.252
+no shut
+end
+copy running-config startup-config
+
+conf t
+router rip
+version 2
+network 192.168.1.224
+network 192.168.1.228
+network 192.168.1.232
+network 192.168.1.236
+no auto-summary
+end
+copy running-config startup-config
+----------------------------------------
+R3
+----------------------------------------
+conf t
+int fa0/0
+ip address 192.168.1.129 255.255.255.224
+no shut
+exit
+int fa0/1
+ip address 192.168.1.161 255.255.255.224
+no shut
+exit
+int s0/0
+ip address 192.168.1.234 255.255.255.252
+no shut
+end
+copy running-config startup-config
+
+conf t
+router rip
+version 2
+network 192.168.1.128
+network 192.168.1.160
+network 192.168.1.232
+no auto-summary
+end
+copy running-config startup-config
+----------------------------------------
+R4
+----------------------------------------
+conf t
+int fa0/0
+ip address 192.168.1.193 255.255.255.224
+no shut
+exit
+int s0/0
+ip address 192.168.1.238 255.255.255.252
+no shut
+end
+copy running-config startup-config
+
+conf t
+router rip
+version 2
+network 192.168.1.192
+network 192.168.1.236
+no auto-summary
+end
+copy running-config startup-config
+----------------------------------------
+R5
+----------------------------------------
+conf t
+int fa0/0
+ip address 192.168.1.1 255.255.255.128
+no shut
+exit
+int s0/0
+ip address 192.168.1.230 255.255.255.252
+no shut
+end
+copy running-config startup-config
+
+conf t
+router rip
+version 2
+network 192.168.1.0
+network 192.168.1.228
+no auto-summary
+end
+copy running-config startup-config
+
+
+
+
+
+
+
+
+
+
+CONFIGURACION NAT --------LSITA
+-------------------------------
+R1
+--------------------------------
+conf t
+int fa0/1
+ip address 192.168.1.130 255.255.255.240
+no shut
+exit
+int fa0/0
+no shut
+exit
+int fa0/0.10
+encapsulation dot1Q 10
+ip address 192.168.1.145 255.255.255.248
+exit
+int fa0/0.20
+encapsulation dot1Q 20
+ip address 192.168.1.153 255.255.255.248
+end
+wr 
+
+
+conf t
+router rip
+version 2
+network 192.168.1.128
+network 192.168.1.144
+network 192.168.1.152
+no auto-summary
+end
+copy running-config startup-config
+
+conf t
+ip route 10.0.0.0 255.0.0.0 192.168.1.225
+end
+wr
+
+
+-------------------------------
+-------------------------------
+R2
+--------------------------------
+conf t
+int fa0/0
+ip address 192.168.1.129 255.255.255.240
+no shut
+exit
+int fa0/1
+ip address 192.168.1.161 255.255.255.224
+no shut
+end
+wr 
+
+conf t
+router rip
+version 2
+network 192.168.1.128
+network 192.168.1.160
+no auto-summary
+end
+copy running-config startup-config
+
+conf t 
+ip nat pool public_access 192.168.1.165 192.168.1.185 netmask 255.255.255.224
+access-list 1 permit 192.168.0.0 0.0.255.255
+ip nat inside source list 1 pool public_access
+end
+wr 
+
+conf t
+int fa0/0
+ip nat inside
+exit
+int fa0/1
+ip nat outside
+end
+copy running-config startup-config
+
+conf t
+ip route 10.0.0.0 255.0.0.0 192.168.1.238
+end
+wr 
+-------------------------------
+R3
+--------------------------------
+conf t
+int fa0/0
+ip address 192.168.1.162 255.255.255.224
+no shut
+exit
+int fa0/1
+ip address 10.10.10.254 255.0.0.0
+no shut
+end
+wr 
+
+conf t
+router rip
+version 2
+network 10.0.0.0
+network 192.168.1.160
+no auto-summary
+end
+copy running-config startup-config
+-------------------------------
+PC1
+--------------------------------
+ip 192.168.1.150 255.255.255.248 192.168.1.145
+-------------------------------
+PC2
+--------------------------------
+ip 10.10.10.40 255.0.0.0 10.10.10.254
+-------------------------------
+DOCKER 1
+--------------------------------
+auto eth0
+iface eth0 inet static
+	address 192.168.1.158
+	netmask 255.255.255.248
+	gateway 192.168.1.153
+-------------------------------
+
+
+
+
+
+CONFIGURACION ACL 
+-------------------------------
+R1
+--------------------------------
+DOCKER 2
+--------------------------------
+auto eth0
+iface eth0 inet static
+	address 192.168.1.222
+	netmask 255.255.255.240
+	gateway 192.168.1.209
+	dns-nameservers 1.1.1.1
+
+CONFIGURACION VLAN
+-------------------------------
+R5
+--------------------------------
+conf t
+int fa1/0
+no shut
+exit
+int fa1/0.11
+encapsulation dot1Q 11
+ip address 192.168.1.1 255.255.255.224
+exit
+int fa1/0.12
+encapsulation dot1Q 12
+ip address 192.168.1.33 255.255.255.224
+exit
+int fa1/0.13
+encapsulation dot1Q 13
+ip address 192.168.1.65 255.255.255.224
+end
+wr 
+
+-------------------------------
+ESW1
+--------------------------------
+show vlan-switch brief
+
+conf t
+vlan 11
+vlan 12
+vlan 13
+end 
+wr
+
+conf t
+interface fa1/1
+switchport mode access
+switchport access vlan 11
+interface fa1/2
+switchport mode access
+switchport access vlan 12
+interface fa1/3
+switchport mode access
+switchport access vlan 13
+end
+wr
+
+conf t 
+interface fa1/0
+switchport mode trunk
+end
+wr
+
+show interfaces status
+
+show interfaces trunk
+
+show interfaces switchport
+-------------------------------
+PC5
+--------------------------------
+ip 192.168.1.10 255.255.255.224 192.168.1.1
+-------------------------------
+PC6
+--------------------------------
+ip 192.168.1.40 255.255.255.224 192.168.1.33
+-------------------------------
+PC7
+--------------------------------
+ip 192.168.1.70 255.255.255.224 192.168.1.65
+-------------------------------
+
+
+
+
+ENRUTAMIENTO ADICIONAL Y CONFIGURACION
+-------------------------------
+R5
+--------------------------------
+conf t
+int s0/0
+ip address 192.168.1.229 255.255.255.252
+no shut
+exit
+int s0/1
+ip address 192.168.1.234 255.255.255.252
+no shut
+end
+wr 
+
+
+conf t
+router rip
+version 2
+no network 192.168.1.64
+no network 192.168.1.32
+no network 192.168.1.0
+network 192.168.1.232
+network 192.168.1.228
+no auto-summary
+end
+copy running-config startup-config
+-------------------------------
+R2
+--------------------------------
+conf t
+int s0/0
+ip address 192.168.1.233 255.255.255.252
+no shut
+exit
+int s0/1
+ip address 192.168.1.238 255.255.255.252
+no shut
+end
+wr 
+
+
+conf t
+router rip
+version 2
+network 192.168.1.232
+network 192.168.1.236
+no auto-summary
+end
+copy running-config startup-config
+-------------------------------
+R4
+--------------------------------
+conf t
+int s0/0
+ip address 192.168.1.226 255.255.255.252
+no shut
+exit
+int s0/1
+ip address 192.168.1.237 255.255.255.252
+no shut
+end
+wr 
+
+
+conf t
+router rip
+version 2
+network 192.168.1.224
+network 192.168.1.236
+no auto-summary
+end
+copy running-config startup-config
+-------------------------------
+R6
+--------------------------------
+conf t
+int s0/0
+ip address 192.168.1.225 255.255.255.252
+no shut
+exit
+int s0/1
+ip address 192.168.1.230 255.255.255.252
+no shut
+end
+wr 
+
+
+conf t
+router rip
+version 2
+network 192.168.1.224
+network 192.168.1.228
+no auto-summary
+end
+copy running-config startup-config
+
+
+
+conf t
+router rip
+version 2
+no network 192.168.0.1
+no network 192.168.1.225
+no network 192.168.0.129
+no network 192.168.1.230
+no auto-summary
+end
+copy running-config startup-config
+
+R6---------.------------------------------
+conf t
+router rip
+version 2
+network 192.168.0.0
+network 192.168.1.224
+network 192.168.0.128
+network 192.168.1.228
+no auto-summary
+end
+copy running-config startup-config
+
+---------------------------------------------
+SNMP
+-----------------------------------------------
+
+
+
+-------------------------------------------
+DHCP
+----------------------------------------
+#en el R4
+
+conf t 
+ip dhcp pool LAN
+no network 192.168.1.192 255.255.255.240
+no default-router 192.168.1.209
+no dns-server 192.168.1.209
+no domain-name R4DHCP 
+end
+wr
+
+conf t 
+ip dhcp pool LAN
+no network 192.168.1.208 255.255.255.240
+no default-router 192.168.1.209
+no dns-server 192.168.1.209
+no domain-name R4DHCPServer 
+end
+wr
+
+
+conf t
+interface fa0/0
+ip helper-address 192.168.1.222
+end
+wr
+
+conf t
+interface fa0/1
+ip helper-address 192.168.1.222
+end
+wr
+
