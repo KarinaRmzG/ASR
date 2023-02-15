@@ -1,0 +1,57 @@
+Dec 09 18:27:03.273 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Dec 09 18:27:03.275 HYPERVISOR: Started on IP = localhost, TCP port = 1558.
+Dec 09 18:27:03.690 HYPERVISOR: exec_cmd: hypervisor version 
+Dec 09 18:27:03.691 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips 
+Dec 09 18:27:03.691 GENERAL: working_dir=C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips
+Dec 09 18:27:03.691 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips\f2e6e72b-0bf9-47ba-9cf8-6526375b9c30 
+Dec 09 18:27:03.691 GENERAL: working_dir=C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips\f2e6e72b-0bf9-47ba-9cf8-6526375b9c30
+Dec 09 18:27:03.919 HYPERVISOR: exec_cmd: vm create R2 2 c3600 
+Dec 09 18:27:03.921 VM: VM R2 created.
+Dec 09 18:27:03.922 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5001 
+Dec 09 18:27:03.922 HYPERVISOR: exec_cmd: c3600 get_mac_addr R2 
+Dec 09 18:27:03.922 HYPERVISOR: exec_cmd: c3600 set_chassis R2 3660 
+Dec 09 18:27:03.923 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/Karina/GNS3/images/IOS/c3660-jk9o3s-mz.124-25d.image 
+Dec 09 18:27:03.924 HYPERVISOR: exec_cmd: vm set_exec_area R2 64 
+Dec 09 18:27:03.924 HYPERVISOR: exec_cmd: vm set_ram R2 192 
+Dec 09 18:27:03.924 HYPERVISOR: exec_cmd: vm set_nvram R2 256 
+Dec 09 18:27:03.925 HYPERVISOR: exec_cmd: vm get_status R2 
+Dec 09 18:27:03.925 HYPERVISOR: exec_cmd: vm slot_add_binding R2 1 0 NM-4T 
+Dec 09 18:27:04.520 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/Karina/GNS3/images/IOS/c3660-jk9o3s-mz.124-25d.image 
+Dec 09 18:27:07.658 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/Karina/GNS3/images/IOS/c3660-jk9o3s-mz.124-25d.image 
+Dec 09 18:27:48.439 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/Karina/GNS3/images/IOS/c3660-jk9o3s-mz.124-25d.image 
+Dec 09 18:27:48.440 HYPERVISOR: exec_cmd: vm rename R2 ISP 
+Dec 09 18:27:48.500 HYPERVISOR: exec_cmd: vm set_ios ISP C:/Users/Karina/GNS3/images/IOS/c3660-jk9o3s-mz.124-25d.image 
+Dec 09 18:28:50.110 HYPERVISOR: exec_cmd: nio create_udp udp-8f888e4e-d9fb-492b-893c-7500e68b497b 10012 127.0.0.1 10013 
+Dec 09 18:28:50.359 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ISP 1 0 udp-8f888e4e-d9fb-492b-893c-7500e68b497b 
+Dec 09 18:28:50.360 HYPERVISOR: exec_cmd: vm get_status ISP 
+Dec 09 18:29:13.507 HYPERVISOR: exec_cmd: vm set_ios ISP C:/Users/Karina/GNS3/images/IOS/c3660-jk9o3s-mz.124-25d.image 
+Dec 09 18:29:21.688 HYPERVISOR: exec_cmd: vm create Ghost 0 c3600 
+Dec 09 18:29:21.690 VM: VM Ghost created.
+Dec 09 18:29:21.692 HYPERVISOR: exec_cmd: vm set_ios Ghost C:/Users/Karina/GNS3/images/IOS/c3660-jk9o3s-mz.124-25d.image 
+Dec 09 18:29:21.693 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Dec 09 18:29:21.694 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips\c3660-jk9o3s-mz.124-25d.image-192.ghost 
+Dec 09 18:29:21.695 HYPERVISOR: exec_cmd: vm set_ram Ghost 192 
+Dec 09 18:29:21.695 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Dec 09 18:29:21.737 HYPERVISOR: exec_cmd: vm set_config Ghost configs\i0_startup-config.cfg 
+Dec 09 18:29:21.737 HYPERVISOR: exec_cmd: vm start Ghost 
+Dec 09 18:29:22.291 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Dec 09 18:29:22.292 HYPERVISOR: exec_cmd: vm stop Ghost 
+Dec 09 18:29:22.432 VM: VM Ghost shutdown.
+Dec 09 18:29:22.433 HYPERVISOR: exec_cmd: vm extract_config Ghost 
+Dec 09 18:29:22.435 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Dec 09 18:29:22.435 VM: VM Ghost destroyed.
+Dec 09 18:29:22.446 HYPERVISOR: exec_cmd: vm set_ghost_status ISP 2 
+Dec 09 18:29:22.446 HYPERVISOR: exec_cmd: vm set_ghost_file ISP C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips\c3660-jk9o3s-mz.124-25d.image-192.ghost 
+Dec 09 18:29:22.447 HYPERVISOR: exec_cmd: vm get_status ISP 
+Dec 09 18:29:22.448 HYPERVISOR: exec_cmd: vm set_config ISP configs\i2_startup-config.cfg 
+Dec 09 18:29:22.448 HYPERVISOR: exec_cmd: vm start ISP 
+Dec 09 18:29:52.766 HYPERVISOR: exec_cmd: vm extract_config ISP 
+Dec 09 18:51:38.287 HYPERVISOR: exec_cmd: vm get_status ISP 
+Dec 09 18:51:38.289 HYPERVISOR: exec_cmd: vm slot_disable_nio ISP 1 0 
+Dec 09 18:51:38.308 HYPERVISOR: exec_cmd: vm slot_remove_nio_binding ISP 1 0 
+Dec 09 18:51:38.312 HYPERVISOR: exec_cmd: nio delete udp-8f888e4e-d9fb-492b-893c-7500e68b497b 
+Dec 09 18:51:59.105 HYPERVISOR: exec_cmd: nio create_udp udp-df264d5d-160d-422f-a49d-ca5f7582d19b 10012 127.0.0.1 10013 
+Dec 09 18:51:59.111 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ISP 1 0 udp-df264d5d-160d-422f-a49d-ca5f7582d19b 
+Dec 09 18:51:59.111 HYPERVISOR: exec_cmd: vm get_status ISP 
+Dec 09 18:51:59.112 HYPERVISOR: exec_cmd: vm slot_enable_nio ISP 1 0 
+Dec 09 18:56:23.896 HYPERVISOR: exec_cmd: vm extract_config ISP 

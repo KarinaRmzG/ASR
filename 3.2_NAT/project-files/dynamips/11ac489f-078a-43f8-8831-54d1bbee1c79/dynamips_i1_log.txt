@@ -1,0 +1,57 @@
+Dec 09 19:13:19.457 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Dec 09 19:13:19.458 HYPERVISOR: Started on IP = localhost, TCP port = 1230.
+Dec 09 19:13:19.879 HYPERVISOR: exec_cmd: hypervisor version 
+Dec 09 19:13:19.879 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips 
+Dec 09 19:13:19.884 GENERAL: working_dir=C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips
+Dec 09 19:13:19.884 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips\f2e6e72b-0bf9-47ba-9cf8-6526375b9c30 
+Dec 09 19:13:19.884 GENERAL: working_dir=C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips\f2e6e72b-0bf9-47ba-9cf8-6526375b9c30
+Dec 09 19:13:19.885 HYPERVISOR: exec_cmd: vm create ISP 2 c3600 
+Dec 09 19:13:19.895 VM: VM ISP created.
+Dec 09 19:13:19.896 HYPERVISOR: exec_cmd: vm set_con_tcp_port ISP 5001 
+Dec 09 19:13:19.897 HYPERVISOR: exec_cmd: c3600 get_mac_addr ISP 
+Dec 09 19:13:19.897 HYPERVISOR: exec_cmd: c3600 set_chassis ISP 3660 
+Dec 09 19:13:19.898 HYPERVISOR: exec_cmd: vm set_exec_area ISP 64 
+Dec 09 19:13:19.900 HYPERVISOR: exec_cmd: vm set_ios ISP C:/Users/Karina/GNS3/images/IOS/c3660-jk9o3s-mz.124-25d.image 
+Dec 09 19:13:19.900 HYPERVISOR: exec_cmd: c3600 set_mac_addr ISP cc02.405c.0000 
+Dec 09 19:13:19.901 HYPERVISOR: exec_cmd: vm set_nvram ISP 256 
+Dec 09 19:13:19.902 HYPERVISOR: exec_cmd: vm set_ram ISP 192 
+Dec 09 19:13:19.902 HYPERVISOR: exec_cmd: vm get_status ISP 
+Dec 09 19:13:19.902 HYPERVISOR: exec_cmd: vm slot_add_binding ISP 1 0 NM-4T 
+Dec 09 19:13:21.796 HYPERVISOR: exec_cmd: nio create_udp udp-6b9cd29e-176c-4728-b6fa-ed30778a5435 10012 127.0.0.1 10013 
+Dec 09 19:13:22.066 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ISP 1 0 udp-6b9cd29e-176c-4728-b6fa-ed30778a5435 
+Dec 09 19:13:22.067 HYPERVISOR: exec_cmd: vm get_status ISP 
+Dec 09 19:17:36.550 HYPERVISOR: exec_cmd: vm create Ghost 0 c3600 
+Dec 09 19:17:36.553 VM: VM Ghost created.
+Dec 09 19:17:36.562 HYPERVISOR: exec_cmd: vm set_ios Ghost C:/Users/Karina/GNS3/images/IOS/c3660-jk9o3s-mz.124-25d.image 
+Dec 09 19:17:36.565 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Dec 09 19:17:36.566 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips\c3660-jk9o3s-mz.124-25d.image-192.ghost 
+Dec 09 19:17:36.567 HYPERVISOR: exec_cmd: vm set_ram Ghost 192 
+Dec 09 19:17:36.568 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Dec 09 19:17:36.600 HYPERVISOR: exec_cmd: vm set_config Ghost configs\i0_startup-config.cfg 
+Dec 09 19:17:36.600 HYPERVISOR: exec_cmd: vm start Ghost 
+Dec 09 19:17:37.356 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Dec 09 19:17:37.357 HYPERVISOR: exec_cmd: vm stop Ghost 
+Dec 09 19:17:37.484 VM: VM Ghost shutdown.
+Dec 09 19:17:37.485 HYPERVISOR: exec_cmd: vm extract_config Ghost 
+Dec 09 19:17:37.487 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Dec 09 19:17:37.487 VM: VM Ghost destroyed.
+Dec 09 19:17:37.496 HYPERVISOR: exec_cmd: vm set_ghost_status ISP 2 
+Dec 09 19:17:37.496 HYPERVISOR: exec_cmd: vm set_ghost_file ISP C:\Users\Karina\Desktop\Decimo semestre\ASR\3.2_NAT\project-files\dynamips\c3660-jk9o3s-mz.124-25d.image-192.ghost 
+Dec 09 19:17:37.497 HYPERVISOR: exec_cmd: vm get_status ISP 
+Dec 09 19:17:37.498 HYPERVISOR: exec_cmd: vm set_config ISP configs\i2_startup-config.cfg 
+Dec 09 19:17:37.498 HYPERVISOR: exec_cmd: vm start ISP 
+Dec 09 19:31:38.063 HYPERVISOR: exec_cmd: vm extract_config ISP 
+Dec 09 19:37:38.176 HYPERVISOR: exec_cmd: vm extract_config ISP 
+Dec 09 19:39:38.229 HYPERVISOR: exec_cmd: vm extract_config ISP 
+Dec 09 19:40:08.244 HYPERVISOR: exec_cmd: vm extract_config ISP 
+Dec 09 21:33:17.630 HYPERVISOR: exec_cmd: vm get_status ISP 
+Dec 09 21:33:17.636 HYPERVISOR: exec_cmd: vm stop ISP 
+Dec 09 21:33:17.729 VM: VM ISP shutdown.
+Dec 09 21:33:17.730 HYPERVISOR: exec_cmd: vm extract_config ISP 
+Dec 09 21:33:18.713 HYPERVISOR: exec_cmd: vm get_status ISP 
+Dec 09 21:33:18.714 HYPERVISOR: exec_cmd: vm extract_config ISP 
+Dec 09 21:33:18.716 HYPERVISOR: exec_cmd: vm delete ISP 
+Dec 09 21:33:18.716 VM: VM ISP destroyed.
+Dec 09 21:33:18.718 HYPERVISOR: exec_cmd: hypervisor stop 
+Dec 09 21:33:19.165 HYPERVISOR: Stopped.
+Dec 09 21:33:19.165 GENERAL: reset done.
