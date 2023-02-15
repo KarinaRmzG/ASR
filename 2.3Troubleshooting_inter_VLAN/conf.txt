@@ -1,0 +1,54 @@
+---------------------------------
+SW1
+---------------------------------
+conf t
+vlan 10
+name Faculty/Staff
+vlan 30
+name Guest(Default)
+
+
+
+conf t
+interface f1/11
+switchport mode access 
+switchport access vlan 10 
+interface f1/6
+switchport mode access 
+switchport access vlan 30
+
+conf t
+interface Fa1/5
+switchport mode trunk
+
+---------------------------------
+R1
+---------------------------------
+
+conf t
+int fa0/1
+no shut
+int fa0/1.10
+no shut
+int fa0/1.30
+no shut
+
+
+conf t
+int fa0/1.10
+encapsulation dot1Q 10
+ip address 172.17.10.1 255.255.255.0
+
+conf t
+int fa0/1.30
+encapsulation dot1Q 30
+ip address 172.17.30.1 255.255.255.0
+
+---------------------------------
+PC1
+---------------------------------
+ip 172.17.10.10 255.255.255.0 172.17.10.1
+---------------------------------
+PC3
+---------------------------------
+ip 172.17.30.10 255.255.255.0 172.17.30.1
