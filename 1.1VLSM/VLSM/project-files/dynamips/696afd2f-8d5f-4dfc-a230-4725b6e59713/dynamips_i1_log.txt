@@ -1,0 +1,41 @@
+Oct 23 17:53:55.124 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Oct 23 17:53:55.125 HYPERVISOR: Started on IP = localhost, TCP port = 12283.
+Oct 23 17:53:55.215 HYPERVISOR: exec_cmd: hypervisor version 
+Oct 23 17:53:55.215 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Karina\Desktop\Decimo semestre\ASR\Practica1\VLSM\project-files\dynamips 
+Oct 23 17:53:55.219 GENERAL: working_dir=C:\Users\Karina\Desktop\Decimo semestre\ASR\Practica1\VLSM\project-files\dynamips
+Oct 23 17:53:55.219 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Karina\Desktop\Decimo semestre\ASR\Practica1\VLSM\project-files\dynamips\696afd2f-8d5f-4dfc-a230-4725b6e59713 
+Oct 23 17:53:55.219 GENERAL: working_dir=C:\Users\Karina\Desktop\Decimo semestre\ASR\Practica1\VLSM\project-files\dynamips\696afd2f-8d5f-4dfc-a230-4725b6e59713
+Oct 23 17:53:55.220 HYPERVISOR: exec_cmd: vm create ISP-R1 1 c3600 
+Oct 23 17:53:55.222 VM: VM ISP-R1 created.
+Oct 23 17:53:55.222 HYPERVISOR: exec_cmd: vm set_con_tcp_port ISP-R1 5000 
+Oct 23 17:53:55.223 HYPERVISOR: exec_cmd: c3600 get_mac_addr ISP-R1 
+Oct 23 17:53:55.223 HYPERVISOR: exec_cmd: c3600 set_chassis ISP-R1 3660 
+Oct 23 17:53:55.223 HYPERVISOR: exec_cmd: vm set_exec_area ISP-R1 64 
+Oct 23 17:53:55.225 HYPERVISOR: exec_cmd: vm set_ios ISP-R1 C:/Users/Karina/GNS3/images/IOS/c3660-jk9o3s-mz.124-25d.image 
+Oct 23 17:53:55.225 HYPERVISOR: exec_cmd: c3600 set_mac_addr ISP-R1 cc01.2b50.0000 
+Oct 23 17:53:55.226 HYPERVISOR: exec_cmd: vm set_nvram ISP-R1 256 
+Oct 23 17:53:55.226 HYPERVISOR: exec_cmd: vm set_ram ISP-R1 192 
+Oct 23 17:53:55.226 HYPERVISOR: exec_cmd: vm get_status ISP-R1 
+Oct 23 17:53:55.227 HYPERVISOR: exec_cmd: vm slot_add_binding ISP-R1 1 0 NM-4T 
+Oct 23 17:54:03.845 HYPERVISOR: exec_cmd: nio create_udp udp-1a0c33cc-cbbd-4f07-86b3-3a34e1f995c3 10002 127.0.0.1 10003 
+Oct 23 17:54:04.102 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ISP-R1 1 0 udp-1a0c33cc-cbbd-4f07-86b3-3a34e1f995c3 
+Oct 23 17:54:04.103 HYPERVISOR: exec_cmd: vm get_status ISP-R1 
+Oct 23 17:54:04.447 HYPERVISOR: exec_cmd: nio create_udp udp-32003acc-0c48-41c5-82b5-32dc481d50be 10008 127.0.0.1 10009 
+Oct 23 17:54:04.449 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ISP-R1 1 1 udp-32003acc-0c48-41c5-82b5-32dc481d50be 
+Oct 23 17:54:04.449 HYPERVISOR: exec_cmd: vm get_status ISP-R1 
+Oct 23 17:54:07.940 HYPERVISOR: exec_cmd: nio create_udp udp-b9945026-380e-4c57-a3dd-57d4cd3c623e 10079 127.0.0.1 10080 
+Oct 23 17:54:07.943 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ISP-R1 0 0 udp-b9945026-380e-4c57-a3dd-57d4cd3c623e 
+Oct 23 17:54:07.943 HYPERVISOR: exec_cmd: vm get_status ISP-R1 
+Oct 23 17:54:26.444 HYPERVISOR: exec_cmd: vm set_ghost_status ISP-R1 2 
+Oct 23 17:54:26.444 HYPERVISOR: exec_cmd: vm set_ghost_file ISP-R1 C:\Users\Karina\Desktop\Decimo semestre\ASR\Practica1\VLSM\project-files\dynamips\c3660-jk9o3s-mz.124-25d.image-192.ghost 
+Oct 23 17:54:26.445 HYPERVISOR: exec_cmd: vm get_status ISP-R1 
+Oct 23 17:54:26.447 HYPERVISOR: exec_cmd: vm set_config ISP-R1 configs\i1_startup-config.cfg 
+Oct 23 17:54:26.448 HYPERVISOR: exec_cmd: vm start ISP-R1 
+Oct 23 17:54:56.774 HYPERVISOR: exec_cmd: vm extract_config ISP-R1 
+Oct 23 18:59:27.427 HYPERVISOR: exec_cmd: vm get_status ISP-R1 
+Oct 23 18:59:27.432 HYPERVISOR: exec_cmd: vm stop ISP-R1 
+Oct 23 18:59:27.582 VM: VM ISP-R1 shutdown.
+Oct 23 18:59:27.584 HYPERVISOR: exec_cmd: vm extract_config ISP-R1 
+Oct 23 18:59:48.101 HYPERVISOR: Stopped.
+Oct 23 18:59:48.101 VM: VM ISP-R1 destroyed.
+Oct 23 18:59:48.278 GENERAL: reset done.

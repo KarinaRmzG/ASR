@@ -1,0 +1,38 @@
+Oct 23 17:53:57.549 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Oct 23 17:53:57.550 HYPERVISOR: Started on IP = localhost, TCP port = 12298.
+Oct 23 17:53:58.045 HYPERVISOR: exec_cmd: hypervisor version 
+Oct 23 17:53:58.046 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Karina\Desktop\Decimo semestre\ASR\Practica1\VLSM\project-files\dynamips 
+Oct 23 17:53:58.046 GENERAL: working_dir=C:\Users\Karina\Desktop\Decimo semestre\ASR\Practica1\VLSM\project-files\dynamips
+Oct 23 17:53:58.047 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Karina\Desktop\Decimo semestre\ASR\Practica1\VLSM\project-files\dynamips\abead753-e312-46eb-8bc5-f8fa95b30324 
+Oct 23 17:53:58.047 GENERAL: working_dir=C:\Users\Karina\Desktop\Decimo semestre\ASR\Practica1\VLSM\project-files\dynamips\abead753-e312-46eb-8bc5-f8fa95b30324
+Oct 23 17:53:58.048 HYPERVISOR: exec_cmd: vm create B2-R1 6 c3600 
+Oct 23 17:53:58.051 VM: VM B2-R1 created.
+Oct 23 17:53:58.052 HYPERVISOR: exec_cmd: vm set_con_tcp_port B2-R1 5005 
+Oct 23 17:53:58.053 HYPERVISOR: exec_cmd: c3600 get_mac_addr B2-R1 
+Oct 23 17:53:58.053 HYPERVISOR: exec_cmd: c3600 set_chassis B2-R1 3660 
+Oct 23 17:53:58.054 HYPERVISOR: exec_cmd: vm set_exec_area B2-R1 64 
+Oct 23 17:53:58.056 HYPERVISOR: exec_cmd: vm set_ios B2-R1 C:/Users/Karina/GNS3/images/IOS/c3660-jk9o3s-mz.124-25d.image 
+Oct 23 17:53:58.056 HYPERVISOR: exec_cmd: c3600 set_mac_addr B2-R1 cc06.31dc.0000 
+Oct 23 17:53:58.057 HYPERVISOR: exec_cmd: vm set_nvram B2-R1 256 
+Oct 23 17:53:58.057 HYPERVISOR: exec_cmd: vm set_ram B2-R1 192 
+Oct 23 17:53:58.057 HYPERVISOR: exec_cmd: vm get_status B2-R1 
+Oct 23 17:53:58.058 HYPERVISOR: exec_cmd: vm slot_add_binding B2-R1 1 0 NM-4T 
+Oct 23 17:54:05.498 HYPERVISOR: exec_cmd: nio create_udp udp-5b2061be-e33e-45d0-a553-ae5acff0ccd3 10028 127.0.0.1 10029 
+Oct 23 17:54:05.742 HYPERVISOR: exec_cmd: vm slot_add_nio_binding B2-R1 1 0 udp-5b2061be-e33e-45d0-a553-ae5acff0ccd3 
+Oct 23 17:54:05.743 HYPERVISOR: exec_cmd: vm get_status B2-R1 
+Oct 23 17:54:07.324 HYPERVISOR: exec_cmd: nio create_udp udp-acc2638b-b2df-4a21-8d18-de588e9a9993 10060 127.0.0.1 10061 
+Oct 23 17:54:07.326 HYPERVISOR: exec_cmd: vm slot_add_nio_binding B2-R1 0 0 udp-acc2638b-b2df-4a21-8d18-de588e9a9993 
+Oct 23 17:54:07.326 HYPERVISOR: exec_cmd: vm get_status B2-R1 
+Oct 23 17:54:26.842 HYPERVISOR: exec_cmd: vm set_ghost_status B2-R1 2 
+Oct 23 17:54:26.844 HYPERVISOR: exec_cmd: vm set_ghost_file B2-R1 C:\Users\Karina\Desktop\Decimo semestre\ASR\Practica1\VLSM\project-files\dynamips\c3660-jk9o3s-mz.124-25d.image-192.ghost 
+Oct 23 17:54:26.845 HYPERVISOR: exec_cmd: vm get_status B2-R1 
+Oct 23 17:54:26.846 HYPERVISOR: exec_cmd: vm set_config B2-R1 configs\i6_startup-config.cfg 
+Oct 23 17:54:26.846 HYPERVISOR: exec_cmd: vm start B2-R1 
+Oct 23 17:54:57.207 HYPERVISOR: exec_cmd: vm extract_config B2-R1 
+Oct 23 18:59:27.621 HYPERVISOR: exec_cmd: vm get_status B2-R1 
+Oct 23 18:59:27.622 HYPERVISOR: exec_cmd: vm stop B2-R1 
+Oct 23 18:59:27.710 VM: VM B2-R1 shutdown.
+Oct 23 18:59:27.711 HYPERVISOR: exec_cmd: vm extract_config B2-R1 
+Oct 23 18:59:48.099 HYPERVISOR: Stopped.
+Oct 23 18:59:48.099 VM: VM B2-R1 destroyed.
+Oct 23 18:59:48.104 GENERAL: reset done.
